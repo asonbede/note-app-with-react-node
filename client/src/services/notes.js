@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "http://localhost:8081/api/notes"; //http://localhost:3001/
+const baseUrl = "api/notes"; //http://localhost:3001/ http://localhost:8081/
 const getAll = () => {
   const request = axios.get(baseUrl);
   return request.then((response) => response.data);
@@ -17,7 +17,7 @@ const update = (id) => {
 
 const deletePerson = (id) => {
   const request = axios.delete(`${baseUrl}/${id}`);
-  return request.then((response) => response.data);
+  return request.then((response) => response.data); //note-app-with-react-node
 };
 export default {
   getAll,
