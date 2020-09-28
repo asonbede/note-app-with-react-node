@@ -101,10 +101,10 @@ if (process.env.NODE_ENV === "production") {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
-const PORT = 8081;
-//const PORT = process.env.PORT || 5000;
+//const PORT = 8081;
+const PORT = process.env.PORT || 8081;
 //app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
 
 app.listen(PORT, () => {
-  console.log(`Server runninmggggg on port ${PORT}`);
+  console.log(`Server runninmgggg on port ${PORT}`);
 });
