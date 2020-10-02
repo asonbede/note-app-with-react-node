@@ -98,20 +98,20 @@ const unknownEndpoint = (request, response) => {
 };
 
 // handler of requests with unknown endpoint
-app.use(unknownEndpoint);
+// app.use(unknownEndpoint);
 
-//middleware error handler
-const errorHandler = (error, request, response, next) => {
-  console.error(error.message);
+// //middleware error handler
+// const errorHandler = (error, request, response, next) => {
+//   console.error(error.message);
 
-  if (error.name === "CastError") {
-    return response.status(400).send({ error: "malformatted id" });
-  }
+//   if (error.name === "CastError") {
+//     return response.status(400).send({ error: "malformatted id" });
+//   }
 
-  next(error);
-};
+//   next(error);
+// };
 
-app.use(errorHandler);
+// app.use(errorHandler);
 
 //deployment setup
 if (process.env.NODE_ENV === "production") {
