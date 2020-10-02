@@ -100,7 +100,7 @@ const unknownEndpoint = (request, response) => {
 // handler of requests with unknown endpoint
 app.use(unknownEndpoint);
 
-middleware error handler
+//middleware error handler
 const errorHandler = (error, request, response, next) => {
   console.error(error.message);
 
