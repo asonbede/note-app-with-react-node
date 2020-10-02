@@ -45,15 +45,15 @@ const App = () => {
   const toggleImportanceOf = (id) => {
     console.log(`importance of ${id} needs to be toggled`);
     //const url = `http://localhost:3001/notes/${id}`;
-    //const note = notes.find((n) => n.id === id);
-    // const changeNote = { ...note, important: !note.important };
+    const note = notes.find((n) => n.id === id);
+    const changeNote = { ...note, important: !note.important };
     noteServices
-      .update(id)
+      .update(id, changeNote)
       .then((returnedNote) => {
-        //setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
-        setNotes(returnedNote);
+        console.log({ returnedNote });
+        setNotes(notes.map((note) => (note.id !== id ? note : returnedNote)));
+        //setNotes(returnedNote);
       })
-
       .catch(() => {
         setErrorMessage(`Note s{note.content} was already removed from server`);
         setTimeout(() => {
@@ -83,11 +83,14 @@ const App = () => {
     if (!confirmResult) {
       return;
     }
-    noteServices.deletePerson(id).then((returnedNote) => {
-      // setNotes(notes.filter((note) => note.id !== id));
-      setNotes(returnedNote);
-      console.log("note deletion was successful");
-    });
+    noteServices
+      .deletePerson(id)
+      .then((returnedNote) => {
+        setNotes(notes.filter((note) => note.id !== id));
+        // setNotes(returnedNote);
+        console.log("note deletion was successful");
+      })
+      .catch(console.log("deletion-error"));
   };
 
   return (

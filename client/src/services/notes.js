@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseUrl = "api/notes"; //http://localhost:3001/ http://localhost:8081/
+const baseUrl = "/api/notes"; //http://localhost:3001/ http://localhost:8081/
 const getAll = () => {
   const request = axios.get(baseUrl);
   return request.then((response) => response.data);
@@ -10,8 +10,8 @@ const create = (newObject) => {
   return request.then((response) => response.data);
 };
 
-const update = (id) => {
-  const request = axios.put(`${baseUrl}/${id}`);
+const update = (id, notObject) => {
+  const request = axios.put(`${baseUrl}/${id}`, notObject);
   return request.then((response) => response.data);
 };
 
