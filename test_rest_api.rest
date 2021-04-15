@@ -1,0 +1,9 @@
+
+    POST http://localhost:8081/api/users
+Content-Type: application/json
+
+{
+   "username":"whatsupnow",
+   "name":"moregentle",
+   "password":"1234"
+}
